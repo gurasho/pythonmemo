@@ -17,13 +17,13 @@ with open('foo/autogithub.py', 'w') as fp:
         fp.close()
 
 repo = git.Repo(to_path)
-# repo.git.branch('new_branch') 
-repo.git.checkout('main')
+repo.git.branch('new_branch') 
+repo.git.checkout('new_branch')
 ufiles = repo.untracked_files
 for f in ufiles:
     repo.git.add(f)
     repo.git.commit(f, message='new file', author='gurasho')
-repo.git.push('origin', 'main')
-# repo.git.push('--delete', 'origin', 'main')
+repo.git.push('origin', 'new_branch')
+repo.git.push('--delete', 'origin', 'new_branch')
 
 webbrowser.open('https://github.com/gurasho')
