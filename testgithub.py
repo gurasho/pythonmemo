@@ -18,5 +18,15 @@ with open('foo/testgithub.py', 'w') as fp:
 
 repo = git.Repo(to_path)
 repo.git.checkout('new_branch')
+<<<<<<< HEAD
 repo.git.push('--delete', 'origin', 'new_branch')
+=======
+ufiles = repo.untracked_files
+for f in ufiles:
+    print(ufiles)
+    repo.git.add(f)
+    repo.git.commit(f, message='new file', author='gurasho')
+repo.git.push('origin', 'new_branch')
+print(repo.git.branch() )
+>>>>>>> d0b9b0eba42b0d28a7273579ee0b9d5595e207f3
 

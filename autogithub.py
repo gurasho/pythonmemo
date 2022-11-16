@@ -16,8 +16,9 @@ with open('foo/autogithub.py', 'w') as fp:
         fp2.close()
         fp.close()
 
+
 repo = git.Repo(to_path)
-repo.git.branch('new_branch') 
+# repo.git.branch('new_branch') 
 repo.git.checkout('new_branch')
 ufiles = repo.untracked_files
 for f in ufiles:
